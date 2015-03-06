@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4ACE28911AA9D24E00FDFB40 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE28901AA9D24E00FDFB40 /* main.c */; };
+		4ACE28991AA9D33D00FDFB40 /* libmpi_cxx.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ACE28971AA9D33D00FDFB40 /* libmpi_cxx.1.dylib */; };
+		4ACE289A1AA9D33D00FDFB40 /* libmpi.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ACE28981AA9D33D00FDFB40 /* libmpi.1.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		4ACE288D1AA9D24E00FDFB40 /* mpiInit */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mpiInit; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ACE28901AA9D24E00FDFB40 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		4ACE28971AA9D33D00FDFB40 /* libmpi_cxx.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpi_cxx.1.dylib; path = ../../../../../../../../../../usr/local/lib/libmpi_cxx.1.dylib; sourceTree = "<group>"; };
+		4ACE28981AA9D33D00FDFB40 /* libmpi.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libmpi.1.dylib; path = ../../../../../../../../../../usr/local/lib/libmpi.1.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ACE28991AA9D33D00FDFB40 /* libmpi_cxx.1.dylib in Frameworks */,
+				4ACE289A1AA9D33D00FDFB40 /* libmpi.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +47,8 @@
 		4ACE28841AA9D24E00FDFB40 = {
 			isa = PBXGroup;
 			children = (
+				4ACE28971AA9D33D00FDFB40 /* libmpi_cxx.1.dylib */,
+				4ACE28981AA9D33D00FDFB40 /* libmpi.1.dylib */,
 				4ACE288F1AA9D24E00FDFB40 /* mpiInit */,
 				4ACE288E1AA9D24E00FDFB40 /* Products */,
 			);
@@ -161,6 +169,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lmpi";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -195,6 +204,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-lmpi";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -202,6 +212,12 @@
 		4ACE28951AA9D24E00FDFB40 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +225,12 @@
 		4ACE28961AA9D24E00FDFB40 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

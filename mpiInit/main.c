@@ -1,15 +1,35 @@
+// A simple MPI "Hello World"
 //
-//  main.c
-//  mpiInit
+// FIRST, READ THE INSTRUCTIONS IN
 //
-//  Created by Konstantinos Chartomatzis on 06/03/2015.
-//  Copyright (c) 2015 Konstantinos Chartomatzis. All rights reserved.
+//    http://www.inf.ed.ac.uk/teaching/courses/ppls/mpiHowTo.html
+//
+// To compile
+//
+//    [mymachine]:  /usr/lib64/openmpi/bin/mpicc -o hellompi hellompi.c
+//
+// and to run
+//
+//    [mymachine]:  /usr/lib64/openmpi/bin/mpirun -c 8 ./hellompi
+//
+// where the number (here 8) gives the number of processes you want.
 //
 
 #include <stdio.h>
+#include <mpi.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+int main(int argc, char *argv[])
+{
+    
+    int rank, p;
+    
+    // Explore the world
+    MPI_Init(&argc, &argv);
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &p);
+    
+    //  Say hello
+    printf ("Hello world from process %d of %d\n", rank, p);
+    
+    MPI_Finalize();
 }
